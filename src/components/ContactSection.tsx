@@ -240,7 +240,7 @@ export const ContactSection = () => {
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                Lahore, Pakistan
+                Sialkot, Pakistan
               </div>
             </div>
           </motion.div>

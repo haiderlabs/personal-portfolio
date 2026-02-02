@@ -82,7 +82,7 @@ export function ChatBot() {
     setShowScrollDown(!isNearBottom);
   };
 
-  const sendMessage = (text: string) => {
+  const sendMessage = async (text: string) => {
     if (!text.trim()) return;
 
     const userMsg: Message = {
@@ -96,9 +96,40 @@ export function ChatBot() {
     setInput("");
     setIsTyping(true);
 
-    // Simulate typing delay for natural feel
-    const delay = 600 + Math.random() * 800;
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_GROQ_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'llama-3.1-8b-instant',
+          messages: [
+            {
+              role: 'system',
+              content: 'You are a helpful AI assistant for Ali Haider\'s portfolio website. Be concise, friendly, and professional. Help visitors learn about his skills, projects, and experience.',
+            },
+            {
+              role: 'user',
+              content: text,
+            },
+          ],
+          max_tokens: 150,
+          temperature: 0.7,
+        }),
+      });
+
+      const data = await response.json();
+      const botMsg: Message = {
+        id: crypto.randomUUID(),
+        text: data.choices[0]?.message?.content || getResponse(text),
+        sender: "bot",
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (error) {
+      // Fallback to local responses if API fails
       const botMsg: Message = {
         id: crypto.randomUUID(),
         text: getResponse(text),
@@ -106,8 +137,9 @@ export function ChatBot() {
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botMsg]);
+    } finally {
       setIsTyping(false);
-    }, delay);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
