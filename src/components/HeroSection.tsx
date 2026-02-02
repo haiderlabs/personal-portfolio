@@ -42,7 +42,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-4"
           >
-            Full Stack Developer & MERN Specialist
+            MERN Stack Developer
           </motion.p>
 
           <motion.p
@@ -87,7 +87,7 @@ export const HeroSection = () => {
             {[
               { icon: Github, href: "https://github.com/haiderlabs", label: "GitHub" },
               { icon: Linkedin, href: "https://linkedin.com/in/alyhaiderdev", label: "LinkedIn" },
-              { icon: Mail, href: "mailto:alex@example.com", label: "Email" },
+              { icon: Mail, href: "mailto:haideraly360@gmail.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a
                 key={label}

@@ -2,6 +2,27 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiMongodb,
+  SiTypescript,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiRedux,
+  SiSocketdotio,
+} from "react-icons/si";
+
+const techIcons = [
+  { Icon: SiReact, color: "#61DAFB", label: "React" },
+  { Icon: SiNodedotjs, color: "#339933", label: "Node.js" },
+  { Icon: SiMongodb, color: "#47A248", label: "MongoDB" },
+  { Icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
+  { Icon: SiNextdotjs, color: "#ffffff", label: "Next.js" },
+  { Icon: SiTailwindcss, color: "#06B6D4", label: "Tailwind" },
+  { Icon: SiRedux, color: "#764ABC", label: "Redux" },
+  { Icon: SiSocketdotio, color: "#010101", label: "Socket.IO" },
+];
 
 const highlights = [
   {
@@ -49,19 +70,20 @@ export const AboutSection = () => {
           <div className="grid md:grid-cols-5 gap-12 items-start">
             <div className="md:col-span-3 space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a passionate full-stack developer with over 4 years of experience building 
-                web applications that make a difference. My journey started with a curiosity 
-                about how things work on the internet, and it evolved into a career dedicated 
-                to crafting exceptional digital experiences.
+                I'm a proactive and detail-oriented <span className="text-foreground font-medium">MERN Stack Developer</span> with
+                a solid background in web app development. Known for strong analytical skills
+                and a commitment to delivering high-quality software solutions.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I specialize in the <span className="text-foreground font-medium">MERN stack</span> (MongoDB, Express, React, Node.js) 
-                and have a deep appreciation for clean architecture, type safety with TypeScript, 
-                and component-driven development.
+                I specialize in the <span className="text-foreground font-medium">MERN stack</span> (MongoDB, Express, React, Node.js)
+                along with TypeScript, Next.js, Redux, Tailwind CSS, Material-UI, and real-time
+                technologies like Socket.IO. I'm capable of thriving in fast-paced environments
+                and collaborating effectively within cross-functional teams.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing 
-                to open source, or sharing knowledge through technical writing and mentorship.
+                Adept at learning new technologies quickly and applying them to solve complex
+                problems, with a focus on continuous improvement and innovation. I speak Urdu,
+                Punjabi, and English.
               </p>
             </div>
 
@@ -69,15 +91,43 @@ export const AboutSection = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="md:col-span-2 relative group"
+              className="md:col-span-2 flex items-center justify-center"
             >
-              <div className="relative aspect-square rounded-2xl overflow-hidden glass-card p-1">
-                <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary/20 to-transparent flex items-center justify-center">
-                  <div className="text-6xl font-bold gradient-text">AC</div>
+              <div className="relative flex items-center justify-center" style={{ width: 300, height: 300 }}>
+                {/* Circular avatar in center */}
+                <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-primary/30 z-10 shrink-0">
+                  <img src="/avatar.jpeg" alt="Avatar" className="w-full h-full object-cover" />
                 </div>
-                <div className="absolute inset-0 rounded-2xl border border-primary/20 group-hover:border-primary/40 transition-colors duration-300" />
+
+                {/* Rotating orbit ring with icons */}
+                <div className="absolute inset-0">
+                  <motion.div
+                    className="w-full h-full"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    style={{ position: "relative" }}
+                  >
+                    {techIcons.map((tech, i) => {
+                      const angle = (i / techIcons.length) * 2 * Math.PI;
+                      const radius = 130;
+                      const cx = 150 + radius * Math.cos(angle) - 20;
+                      const cy = 150 + radius * Math.sin(angle) - 20;
+                      return (
+                        <motion.div
+                          key={tech.label}
+                          className="absolute w-10 h-10 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center shadow-lg"
+                          style={{ left: cx, top: cy }}
+                          animate={{ rotate: -360 }}
+                          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                          title={tech.label}
+                        >
+                          <tech.Icon className="w-5 h-5" style={{ color: tech.color }} />
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                </div>
               </div>
-              <div className="absolute -inset-4 bg-primary/5 rounded-3xl -z-10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </motion.div>
           </div>
 

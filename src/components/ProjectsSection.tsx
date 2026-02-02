@@ -13,85 +13,65 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 
-const featuredProjects = [
+interface Project {
+  title: string;
+  description: string;
+  longDescription?: string;
+  image?: string;
+  technologies: string[];
+  github: string;
+  demo?: string;
+  featured?: boolean;
+}
+
+const featuredProjects: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "The Tax Truths",
     description:
-      "A full-featured e-commerce platform with real-time inventory, payment processing via Stripe, and an admin dashboard. Built with Next.js, TypeScript, and MongoDB.",
+      "A Tax Advisory & Management Platform with multiple dashboards for Admin, Client, Super Admin, and Operations — each tailored with relevant tools, workflows, and data visibility.",
     longDescription:
-      "This comprehensive e-commerce solution handles everything from product management to order fulfillment. Features include real-time inventory tracking, multiple payment gateways, customer authentication, wishlists, and a powerful admin dashboard with analytics.",
+      "Developed multiple role-based dashboards with a responsive, intuitive frontend using React.js, Material-UI, and Tailwind CSS. Designed secure client interfaces for managing tax filings, payments, financial reports, and document uploads. Enabled collaboration through seamless document sharing and real-time updates between clients and advisors. Implemented efficient workflow designs for admins and operations to monitor activities, manage payments, and oversee tax compliance tasks.",
     image: "/placeholder.svg",
-    technologies: ["Next.js", "TypeScript", "MongoDB", "Stripe", "Tailwind CSS"],
+    technologies: ["React.js", "Material-UI", "Tailwind CSS", "Node.js", "MongoDB"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
     featured: true,
   },
   {
-    title: "Task Management App",
+    title: "ApoTek",
     description:
-      "A Notion-inspired task management application with drag-and-drop, real-time collaboration, and markdown support. Built with React and Supabase.",
+      "A Laboratory Management System with role-based dashboards and panels for Admin, Lab Admin, Sales, Logistics, Customer Service, and Clients.",
     longDescription:
-      "This productivity tool enables teams to manage projects with Kanban boards, rich text editing, and real-time updates. Includes features like task assignments, due dates, labels, and integrations with popular tools.",
+      "Built role-based dashboards and panels for multiple roles. Developed interactive and responsive UIs using React.js, Material-UI, and Tailwind CSS for smooth workflows. Implemented client profile management with secure access to lab records, orders, and communications. Enabled real-time updates and notifications across dashboards for lab reports, orders, and tasks. Designed frontend to support efficient multi-role interactions and seamless user experience.",
     image: "/placeholder.svg",
-    technologies: ["React", "Supabase", "dnd-kit", "TypeScript", "shadcn/ui"],
+    technologies: ["React.js", "Material-UI", "Tailwind CSS", "REST API", "Socket.IO"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
     featured: true,
   },
   {
-    title: "AI Chat Interface",
+    title: "Kordia – Musical Academy",
     description:
-      "A ChatGPT-like interface with streaming responses, conversation history, and multiple AI model support. Features code syntax highlighting and markdown rendering.",
+      "A platform connecting musicians, students, and event organizers with course management, real-time chat, and event booking capabilities.",
     longDescription:
-      "This AI-powered chat application provides a seamless conversational experience with support for multiple language models. Includes conversation branching, export functionality, and custom system prompts.",
+      "Built a responsive, interactive UI connecting musicians, students, and event organizers. Developed student-facing modules for browsing, enrolling, and accessing courses. Created musician dashboards to manage courses, events, and performances. Enabled real-time updates and notifications for course progress, events, and bookings. Implemented a real-time chat system to facilitate communication between students, musicians, and organizers.",
     image: "/placeholder.svg",
-    technologies: ["React", "OpenAI API", "Node.js", "Redis", "Framer Motion"],
+    technologies: ["React.js", "Socket.IO", "Node.js", "Tailwind CSS", "MongoDB"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
     featured: true,
   },
 ];
 
-const otherProjects = [
+const otherProjects: Project[] = [
   {
-    title: "Weather Dashboard",
-    description: "Real-time weather app with 7-day forecasts and location search.",
-    technologies: ["React", "OpenWeather API", "Chart.js"],
-    github: "https://github.com",
-    demo: "https://demo.example.com",
-  },
-  {
-    title: "Portfolio CMS",
-    description: "Headless CMS for managing portfolio content with Markdown support.",
-    technologies: ["Next.js", "Sanity", "TypeScript"],
-    github: "https://github.com",
-    demo: "https://demo.example.com",
-  },
-  {
-    title: "Budget Tracker",
-    description: "Personal finance app with expense categorization and insights.",
-    technologies: ["React Native", "SQLite", "Redux"],
+    title: "RHS – School Management System",
+    description: "Interactive dashboards for managing students, guardians, and staff with academic tracking, attendance, grades, and behavior monitoring.",
+    technologies: ["React.js", "Material-UI", "Tailwind CSS", "Node.js"],
     github: "https://github.com",
   },
   {
-    title: "Code Snippet Manager",
-    description: "Organize and share code snippets with syntax highlighting.",
-    technologies: ["Vue.js", "Firebase", "Prism.js"],
+    title: "XPMO – Project Management SaaS",
+    description: "A SaaS project management platform with task tracking, team collaboration, and workflow automation.",
+    technologies: ["React.js", "Shadcn UI", "Tailwind CSS"],
     github: "https://github.com",
-    demo: "https://demo.example.com",
-  },
-  {
-    title: "Markdown Editor",
-    description: "Live preview Markdown editor with export and theme options.",
-    technologies: ["React", "CodeMirror", "Tailwind CSS"],
-    github: "https://github.com",
-  },
-  {
-    title: "URL Shortener",
-    description: "Custom short links with analytics and QR code generation.",
-    technologies: ["Node.js", "MongoDB", "Redis"],
-    github: "https://github.com",
-    demo: "https://demo.example.com",
   },
 ];
 

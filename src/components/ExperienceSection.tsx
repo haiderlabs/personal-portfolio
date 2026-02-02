@@ -4,39 +4,32 @@ import { useRef } from "react";
 import { MapPin, Calendar, Briefcase, GraduationCap, Heart, Clock } from "lucide-react";
 
 const bioData = [
-  { icon: MapPin, label: "Location", value: "San Francisco, CA" },
-  { icon: Briefcase, label: "Experience", value: "4+ Years" },
+  { icon: MapPin, label: "Location", value: "Sialkot, Pakistan" },
+  { icon: Briefcase, label: "Experience", value: "2+ Years" },
   { icon: Clock, label: "Availability", value: "Open to work" },
-  { icon: Heart, label: "Interests", value: "Open Source, AI/ML" },
+  { icon: Heart, label: "Interests", value: "Problem Solving, Tech Community" },
 ];
 
 const timeline = [
   {
-    year: "2023 - Present",
-    title: "Senior Software Engineer",
-    company: "Tech Innovators Inc.",
-    description: "Leading frontend architecture for enterprise SaaS platform. Reduced bundle size by 40% and improved Core Web Vitals.",
-    type: "work",
-  },
-  {
-    year: "2021 - 2023",
+    year: "Sep 2024 - Present",
     title: "Full Stack Developer",
-    company: "Digital Solutions Co.",
-    description: "Built and shipped 12+ production applications. Mentored junior developers and established coding standards.",
+    company: "Fabulous Technology Solutions",
+    description: "Collaborating with cross-functional teams to design and develop software products. Building RESTful APIs using Express.js and Node.js, implementing secure authentication with JWT, OAuth, and bcrypt. Managing state with Context API and Redux, and translating wireframes into pixel-perfect interfaces.",
     type: "work",
   },
   {
-    year: "2020 - 2021",
-    title: "Frontend Developer",
-    company: "StartupXYZ",
-    description: "Developed React applications from scratch. Implemented CI/CD pipelines and automated testing.",
+    year: "Feb 2024 - Aug 2024",
+    title: "Junior React Developer",
+    company: "Techno Soft Solution",
+    description: "Developed responsive, interactive UIs using React.js, Material-UI, and Tailwind CSS. Collaborated with backend and design teams to integrate APIs, manage state, and handle routing. Contributed to agile sprints, code reviews, and UI/UX improvements.",
     type: "work",
   },
   {
-    year: "2016 - 2020",
-    title: "Bachelor's in Computer Science",
-    company: "University of California",
-    description: "Graduated with honors. Focus on software engineering and distributed systems.",
+    year: "2020 - 2024",
+    title: "BS Information Technology",
+    company: "University of Gujrat",
+    description: "Focused on software engineering, OOP, data structures & algorithms, database design, and full-stack web development.",
     type: "education",
   },
 ];

@@ -6,76 +6,61 @@ import {
   Server,
   Palette,
   Shield,
-  Cloud,
   GitBranch,
   Layers,
-  Zap,
 } from "lucide-react";
 
 const categories = [
   {
     title: "Frontend",
     icon: Palette,
+    color: "#61DAFB",
     technologies: [
-      { name: "React", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Tailwind CSS", level: 92 },
-      { name: "Next.js", level: 85 },
-      { name: "shadcn/ui", level: 90 },
-      { name: "Framer Motion", level: 80 },
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Bootstrap CSS",
+      "MUI",
+      "Shadcn UI",
     ],
   },
   {
     title: "Backend",
     icon: Server,
+    color: "#339933",
     technologies: [
-      { name: "Node.js", level: 90 },
-      { name: "Express.js", level: 88 },
-      { name: "GraphQL", level: 75 },
-      { name: "REST APIs", level: 92 },
-      { name: "Prisma", level: 80 },
-      { name: "tRPC", level: 70 },
+      "Node.js",
+      "Express.js",
+      "REST API",
+      "GraphQL",
+      "Socket.IO",
     ],
   },
   {
-    title: "Database",
+    title: "Database & ORM",
     icon: Database,
-    technologies: [
-      { name: "MongoDB", level: 88 },
-      { name: "PostgreSQL", level: 82 },
-      { name: "Redis", level: 75 },
-      { name: "Supabase", level: 85 },
-    ],
+    color: "#47A248",
+    technologies: ["MongoDB", "SQL", "Mongoose", "Prisma"],
   },
   {
-    title: "Auth & Payments",
+    title: "State Management",
+    icon: Layers,
+    color: "#764ABC",
+    technologies: ["Redux / RTK Query", "Context API"],
+  },
+  {
+    title: "Auth & Security",
     icon: Shield,
-    technologies: [
-      { name: "JWT", level: 90 },
-      { name: "OAuth 2.0", level: 85 },
-      { name: "Stripe", level: 80 },
-      { name: "NextAuth", level: 82 },
-    ],
-  },
-  {
-    title: "DevOps & Cloud",
-    icon: Cloud,
-    technologies: [
-      { name: "Docker", level: 78 },
-      { name: "AWS", level: 72 },
-      { name: "Vercel", level: 90 },
-      { name: "CI/CD", level: 85 },
-    ],
+    color: "#F59E0B",
+    technologies: ["JWT", "OAuth"],
   },
   {
     title: "Tools",
     icon: GitBranch,
-    technologies: [
-      { name: "Git & GitHub", level: 95 },
-      { name: "VS Code", level: 92 },
-      { name: "Figma", level: 75 },
-      { name: "Postman", level: 88 },
-    ],
+    color: "#F05032",
+    technologies: ["Git & GitHub"],
   },
 ];
 
@@ -100,8 +85,8 @@ export const TechnologiesSection = () => {
           </div>
 
           <p className="text-lg text-muted-foreground max-w-2xl mb-12">
-            I work with a modern tech stack focused on performance, developer experience, 
-            and scalability. Here's what I bring to the table.
+            I work with a modern tech stack focused on performance, developer
+            experience, and scalability. Here's what I bring to the table.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -113,43 +98,34 @@ export const TechnologiesSection = () => {
                 transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
                 className="p-6 rounded-2xl glass-card hover-lift group"
               >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                    <category.icon className="w-5 h-5 text-primary" />
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors"
+                    style={{ backgroundColor: `${category.color}15` }}
+                  >
+                    <category.icon
+                      className="w-5 h-5"
+                      style={{ color: category.color }}
+                    />
                   </div>
                   <h3 className="font-semibold text-lg">{category.title}</h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="flex flex-wrap gap-2">
                   {category.technologies.map((tech, techIndex) => (
-                    <motion.div
-                      key={tech.name}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{
-                        duration: 0.4,
-                        delay: categoryIndex * 0.1 + techIndex * 0.05 + 0.3,
+                        duration: 0.3,
+                        delay:
+                          categoryIndex * 0.1 + techIndex * 0.05 + 0.3,
                       }}
+                      className="px-3 py-1.5 text-sm rounded-lg border border-border bg-secondary/50 text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all duration-200 cursor-default"
                     >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <span className="text-sm font-medium">{tech.name}</span>
-                        <span className="text-xs font-mono text-muted-foreground">
-                          {tech.level}%
-                        </span>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-secondary overflow-hidden">
-                        <motion.div
-                          className="h-full rounded-full bg-gradient-to-r from-primary to-primary/60"
-                          initial={{ width: 0 }}
-                          animate={isInView ? { width: `${tech.level}%` } : {}}
-                          transition={{
-                            duration: 1,
-                            delay: categoryIndex * 0.1 + techIndex * 0.05 + 0.5,
-                            ease: "easeOut",
-                          }}
-                        />
-                      </div>
-                    </motion.div>
+                      {tech}
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>
