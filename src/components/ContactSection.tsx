@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import emailjs from '@emailjs/browser';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -57,11 +58,27 @@ export const ContactSection = () => {
 
     setIsSubmitting(true);
 
-    // Simulate EmailJS integration
-    // In production, replace this with actual EmailJS implementation:
-    // emailjs.send(serviceId, templateId, formData, publicKey)
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // EmailJS credentials from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS credentials not configured');
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          time: new Date().toLocaleString(),
+        },
+        publicKey
+      );
       
       setIsSubmitted(true);
       toast({
@@ -75,9 +92,21 @@ export const ContactSection = () => {
         setIsSubmitted(false);
       }, 3000);
     } catch (error) {
+      console.error('EmailJS error:', error);
+      
+      let errorMessage = "Please try again or email me directly.";
+      
+      if (error instanceof Error) {
+        if (error.message.includes('credentials not configured')) {
+          errorMessage = "Contact form is not configured yet. Please email me directly.";
+        } else if (error.message.includes('Invalid service ID')) {
+          errorMessage = "Email service configuration error. Please email me directly.";
+        }
+      }
+      
       toast({
         title: "Something went wrong",
-        description: "Please try again or email me directly.",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
@@ -203,15 +232,15 @@ export const ContactSection = () => {
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-muted-foreground">
               <a
-                href="mailto:alex@example.com"
+                href="mailto:haideraly360@gmail.com"
                 className="flex items-center gap-2 hover:text-primary transition-colors"
               >
                 <Mail className="w-4 h-4" />
-                alex@example.com
+                haideraly360@gmail.com
               </a>
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />
-                San Francisco, CA
+                Lahore, Pakistan
               </div>
             </div>
           </motion.div>

@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Github, href: "https://github.com/haiderlabs", label: "GitHub" },
+  { icon: Linkedin, href: "https://linkedin.com/in/alyhaiderdev", label: "LinkedIn" },
   { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
 ];
 
@@ -30,7 +30,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-sm text-muted-foreground font-mono flex items-center gap-1">
-            Built with <Heart className="w-3 h-3 text-primary fill-primary" /> by Alex Chen
+            Built with <Heart className="w-3 h-3 text-primary fill-primary" /> by Ali Haider
           </p>
 
           <p className="text-xs text-muted-foreground">

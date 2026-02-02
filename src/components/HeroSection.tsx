@@ -33,7 +33,7 @@ export const HeroSection = () => {
             className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-6"
           >
             Hi, I'm{" "}
-            <span className="gradient-text">Alex Chen</span>
+            <span className="gradient-text">Ali Haider</span>
           </motion.h1>
 
           <motion.p
@@ -85,8 +85,8 @@ export const HeroSection = () => {
             className="flex items-center justify-center gap-6"
           >
             {[
-              { icon: Github, href: "https://github.com", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+              { icon: Github, href: "https://github.com/haiderlabs", label: "GitHub" },
+              { icon: Linkedin, href: "https://linkedin.com/in/alyhaiderdev", label: "LinkedIn" },
               { icon: Mail, href: "mailto:alex@example.com", label: "Email" },
             ].map(({ icon: Icon, href, label }) => (
               <motion.a

@@ -41,8 +41,8 @@ export const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span className="gradient-text">Dev</span>
-            <span className="text-foreground">Portfolio</span>
+            <span className="gradient-text">Ali</span>{"  "}
+            <span className="text-foreground">Haider</span>
           </motion.a>
 
           {/* Desktop Navigation */}
