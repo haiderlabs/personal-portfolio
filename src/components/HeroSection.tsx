@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
@@ -10,10 +10,10 @@ export const HeroSection = () => {
     >
       {/* Background Effects */}
       <div className="absolute inset-0 bg-hero-gradient" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
+      <div className="absolute top-1/4 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
+      <div className="absolute bottom-1/4 right-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-primary/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "-3s" }} />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-4"
+            className="text-lg sm:text-2xl md:text-3xl font-medium text-muted-foreground mb-4"
           >
             MERN Stack Developer
           </motion.p>
@@ -49,7 +49,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10 text-balance"
+            className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 sm:mb-10 text-balance"
           >
             I craft exceptional digital experiences with clean code, 
             scalable architecture, and pixel-perfect interfaces.
@@ -59,11 +59,11 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12"
           >
             <Button
               size="lg"
-              className="min-w-[180px] bg-primary text-primary-foreground hover:bg-primary/90 glow"
+              className="w-full sm:w-auto min-w-[180px] bg-primary text-primary-foreground hover:bg-primary/90 glow"
               asChild
             >
               <a href="#projects">View Projects</a>
@@ -71,10 +71,21 @@ export const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="min-w-[180px] border-border hover:bg-secondary"
+              className="w-full sm:w-auto min-w-[180px] border-border hover:bg-secondary"
               asChild
             >
               <a href="#contact">Contact Me</a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full sm:w-auto min-w-[180px] border-border hover:bg-secondary gap-2"
+              asChild
+            >
+              <a href="/Haider_resume.pdf" download>
+                <Download className="w-4 h-4" />
+                Download CV
+              </a>
             </Button>
           </motion.div>
 

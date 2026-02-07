@@ -39,8 +39,8 @@ export const ExperienceSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-24 md:py-32 bg-secondary/30 relative">
-      <div className="container mx-auto px-6">
+    <section id="experience" className="py-16 sm:py-24 md:py-32 bg-secondary/30 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -78,7 +78,7 @@ export const ExperienceSection = () => {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
+            <div className="absolute left-[5px] md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
 
             {timeline.map((item, index) => (
               <motion.div
@@ -91,9 +91,9 @@ export const ExperienceSection = () => {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-0 md:left-1/2 top-1 w-3 h-3 rounded-full bg-primary md:-translate-x-1/2 ring-4 ring-background" />
+                <div className="absolute left-0 md:left-1/2 top-2 w-3 h-3 rounded-full bg-primary md:-translate-x-1/2 ring-4 ring-background" />
 
-                <div className="p-6 rounded-2xl glass-card hover-lift group">
+                <div className="p-4 sm:p-6 rounded-2xl glass-card hover-lift group">
                   <div className="flex items-center gap-2 mb-3">
                     {item.type === "work" ? (
                       <Briefcase className="w-4 h-4 text-primary" />
@@ -106,7 +106,7 @@ export const ExperienceSection = () => {
                     {item.title}
                   </h3>
                   <p className="text-sm text-muted-foreground mb-3">{item.company}</p>
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </motion.div>
             ))}

@@ -115,8 +115,8 @@ export const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16 sm:py-24 md:py-32 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -129,7 +129,7 @@ export const ContactSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold">Get In Touch</h2>
           </div>
 
-          <p className="text-lg text-muted-foreground mb-12 max-w-lg mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground mb-8 sm:mb-12 max-w-lg mx-auto">
             I'm currently open to new opportunities and would love to hear from you. 
             Whether you have a question or just want to say hi, I'll get back to you!
           </p>

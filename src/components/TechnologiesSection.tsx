@@ -84,8 +84,8 @@ export const TechnologiesSection = () => {
   let globalIdx = 0;
 
   return (
-    <section id="technologies" className="py-24 md:py-32 relative">
-      <div className="container mx-auto px-6">
+    <section id="technologies" className="py-16 sm:py-24 md:py-32 relative">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
@@ -115,7 +115,7 @@ export const TechnologiesSection = () => {
                 <h3 className="text-sm font-mono text-primary mb-6 tracking-wider uppercase">
                   {cat.title}
                 </h3>
-                <div className="flex flex-wrap gap-6 md:gap-8">
+                <div className="flex flex-wrap gap-4 sm:gap-6 md:gap-8">
                   {cat.items.map((tech) => {
                     const Icon = tech.icon;
                     const idx = globalIdx++;
@@ -126,10 +126,10 @@ export const TechnologiesSection = () => {
                         animate={isInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.3, delay: idx * 0.04 + 0.2 }}
                         whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                        className="flex flex-col items-center gap-3 group cursor-default"
+                        className="flex flex-col items-center gap-2 sm:gap-3 group cursor-default"
                       >
                         <div
-                          className="w-16 h-16 rounded-2xl border border-border bg-secondary/20 flex items-center justify-center group-hover:border-transparent group-hover:shadow-[0_0_20px_rgba(var(--primary-rgb,100,100,255),0.15)] transition-all duration-300"
+                          className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl border border-border bg-secondary/20 flex items-center justify-center group-hover:border-transparent group-hover:shadow-[0_0_20px_rgba(var(--primary-rgb,100,100,255),0.15)] transition-all duration-300"
                           style={{
                             boxShadow: undefined,
                           }}
@@ -143,7 +143,7 @@ export const TechnologiesSection = () => {
                           }}
                         >
                           <Icon
-                            className="w-8 h-8 transition-transform duration-300 group-hover:scale-110"
+                            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 transition-transform duration-300 group-hover:scale-110"
                             style={{ color: tech.color }}
                           />
                         </div>

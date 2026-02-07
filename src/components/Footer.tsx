@@ -9,8 +9,8 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer className="py-12 border-t border-border">
-      <div className="container mx-auto px-6">
+    <footer className="py-8 sm:py-12 border-t border-border">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col items-center gap-6">
           <div className="flex items-center gap-6">
             {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -29,9 +29,9 @@ export const Footer = () => {
             ))}
           </div>
 
-          <p className="text-sm text-muted-foreground font-mono flex items-center gap-1">
+          {/* <p className="text-sm text-muted-foreground font-mono flex items-center gap-1">
             Built with <Heart className="w-3 h-3 text-primary fill-primary" /> by Ali Haider
-          </p>
+          </p> */}
 
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} All rights reserved.
