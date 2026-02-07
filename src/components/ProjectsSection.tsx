@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Folder, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { featuredProjects, otherProjects } from "@/data/projects";
@@ -45,8 +45,13 @@ export const ProjectsSection = () => {
                   }`}
                 >
                   <div className="relative group overflow-hidden rounded-2xl">
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 via-secondary to-primary/10 flex items-center justify-center">
-                      <Folder className="w-16 h-16 text-primary/40 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={project.images[0]?.src}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
                     </div>
                     <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
@@ -118,21 +123,21 @@ export const ProjectsSection = () => {
                     transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
                     className="p-4 sm:p-6 rounded-2xl glass-card hover-lift group h-full"
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <Folder className="w-8 h-8 sm:w-10 sm:h-10 text-primary" />
-                      <div className="flex gap-3">
-                        <span className="text-muted-foreground hover:text-primary transition-colors">
-                          <Github className="w-5 h-5" />
-                        </span>
-                        <span className="text-muted-foreground hover:text-primary transition-colors">
-                          <ArrowUpRight className="w-5 h-5" />
-                        </span>
-                      </div>
+                    <div className="aspect-video rounded-xl overflow-hidden mb-4 -mx-1 -mt-1 sm:-mx-2 sm:-mt-2">
+                      <img
+                        src={project.images[0]?.src}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
                     </div>
 
-                    <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h4>
+                    <div className="flex items-start justify-between mb-3">
+                      <h4 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h4>
+                      <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0 mt-1" />
+                    </div>
                     <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       {project.description}
                     </p>
